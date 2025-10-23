@@ -1,239 +1,133 @@
-::-webkit-scrollbar {
-  width: 8px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #202225; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #5865f2; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7289da; }
 
-::-webkit-scrollbar-track {
-  background: #23272A;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #7289DA;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #99AAB5;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #2C2F33, #23272A, #1B1E21);
-  background-size: 300% 300%;
-  animation: gradientAnimation 15s ease infinite;
-  color: #DCDDDE;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: linear-gradient(135deg, #2f3136, #1e1f22);
+  color: #fff;
+  margin: 0; padding: 0;
+  display: flex; justify-content: center; align-items: center;
+  height: 100vh;
 }
 
 .card {
-  background: #36393F;
-  padding: 40px;
-  border-radius: 24px;
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    inset 0 0 10px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 650px;
-  animation: fadeIn 1s ease-out;
-  overflow: hidden;
-  max-height: 95vh;
-  position: relative;
-  z-index: 1;
+  background: #36393f;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.5);
+  width: 100%; max-width: 600px;
+  animation: fadeIn .8s ease;
+  overflow: auto; max-height: 95vh;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-  color: #ADB8FF;
+  color: #adb8ff;
   text-align: center;
-  margin: 0 0 30px;
-  font-weight: 700;
-  font-size: 28px;
-  text-shadow: 0 0 10px rgba(173, 184, 255, 0.5);
-  letter-spacing: 1px;
+  margin: 0 0 24px;
+  font-weight: 600;
 }
 
 label {
   display: block;
-  margin-top: 20px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #B9BBBE;
+  margin-top: 18px;
+  font-size: 14px;
 }
 
 input[type="text"], textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  border-radius: 10px;
-  border: 1px solid #4F545C;
-  background: #2F3136;
-  color: #FFFFFF;
-  font-family: 'Inter', monospace;
-  font-size: 14px;
-  resize: vertical;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"]:focus, textarea:focus {
-  border-color: #5865F2;
-  box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.5);
-  outline: none;
+  width: 100%; padding: 10px; margin-top: 6px;
+  border-radius: 8px; border: none;
+  background: #202225; color: #fff;
+  font-family: monospace; resize: vertical;
 }
 
 textarea {
-  min-height: 80px;
-  overflow-y: auto;
+  min-height: 60px; overflow-y: auto;
 }
 
 .button-container {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 30px;
+  display: flex; gap: 10px; justify-content: center; margin-top: 24px;
 }
 
 button.primary {
-  width: 50%;
-  padding: 16px;
-  border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #7289DA, #5865F2);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  position: relative;
+  margin-top: 24px; width: 50%; padding: 14px;
+  border: none; border-radius: 14px;
+  background: linear-gradient(135deg, #6d75ff, #5865f2);
+  color: #fff; font-weight: 700; font-size: 18px;
+  letter-spacing: .5px; cursor: pointer; position: relative;
   box-shadow:
-    0 6px 20px rgba(88, 101, 242, 0.5),
-    inset 0 0 10px rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    0 4px 15px rgba(88,101,242,.4),
+    0 0 10px rgba(255,255,255,.1),
+    inset 0 0 5px rgba(255,255,255,.2);
+  overflow: hidden; transition: all .3s;
 }
 
 button.primary:hover {
-  background: linear-gradient(135deg, #8EA3FF, #6E84F8);
+  background: linear-gradient(135deg, #7d89ff, #4e57e0);
   box-shadow:
-    0 8px 25px rgba(88, 101, 242, 0.7),
-    0 0 30px rgba(255, 255, 255, 0.3),
-    inset 0 0 15px rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px) scale(1.02);
+    0 6px 22px rgba(88,101,242,.6),
+    0 0 24px rgba(255,255,255,.2),
+    inset 0 0 10px rgba(255,255,255,.3);
+  transform: scale(1.03);
 }
 
 button.primary:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+  transform: scale(0.96);
+  box-shadow: inset 0 4px 6px rgba(0,0,0,.3);
 }
 
 button.primary.loading {
-  color: #fff;
-  pointer-events: none;
-  opacity: 0.8;
+  color: #fff; pointer-events: none;
 }
 
 button.secondary {
-  width: 50%;
-  padding: 16px;
-  border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #EC5151, #C0392B);
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  position: relative;
+  margin-top: 24px; width: 50%; padding: 14px;
+  border: none; border-radius: 14px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff; font-weight: 700; font-size: 18px;
+  letter-spacing: .5px; cursor: pointer; position: relative;
   box-shadow:
-    0 6px 20px rgba(236, 81, 81, 0.5),
-    inset 0 0 10px rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    0 4px 15px rgba(236,81,81,.4),
+    0 0 10px rgba(255,255,255,.1),
+    inset 0 0 5px rgba(255,255,255,.2);
+  overflow: hidden; transition: all .3s;
 }
 
 button.secondary:hover {
-  background: linear-gradient(135deg, #FF6B6B, #D64B3D);
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
   box-shadow:
-    0 8px 25px rgba(236, 81, 81, 0.7),
-    0 0 30px rgba(255, 255, 255, 0.3),
-    inset 0 0 15px rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px) scale(1.02);
+    0 6px 22px rgba(236,81,81,.6),
+    0 0 24px rgba(255,255,255,.2),
+    inset 0 0 10px rgba(255,255,255,.3);
+  transform: scale(1.03);
 }
 
 button.secondary:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+  transform: scale(0.96);
+  box-shadow: inset 0 4px 6px rgba(0,0,0,.3);
 }
 
 #log {
-  margin-top: 30px;
-  padding: 15px;
-  height: 150px;
-  overflow-y: auto;
-  background: #202225;
-  border-radius: 12px;
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 13px;
-  color: #7B8893; /* Subtle log text color */
-  white-space: pre-wrap;
-  border: 1px solid #2F3136;
+  margin-top: 20px; padding: 10px; height: 120px;
+  overflow-y: auto; background: #202225;
+  border-radius: 10px; font-family: monospace;
+  font-size: 12px; white-space: pre-wrap;
 }
 
-/* === Responsive Design Enhancement === */
-@media (max-width: 650px) {
-  body {
-    padding: 10px;
-  }
-  .card {
-    padding: 20px;
-    max-width: 100%;
-    border-radius: 15px;
-  }
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  label {
-    font-size: 14px;
-    margin-top: 15px;
-  }
-  input[type="text"], textarea {
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-  .button-container {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  button.primary, button.secondary {
-    width: 100%;
-    font-size: 17px;
-    padding: 12px;
-  }
-  #log {
-    height: 100px;
-    font-size: 12px;
-    padding: 10px;
-  }
+@media (max-width: 600px) {
+  .card { padding: 16px; max-width: 95%; border-radius: 10px; }
+  h2 { font-size: 18px; margin-bottom: 16px; }
+  label { font-size: 13px; margin-top: 12px; }
+  input[type="text"], textarea { padding: 8px; font-size: 12px; }
+  .button-container { flex-direction: column; gap: 8px; }
+  button.primary, button.secondary { width: 100%; font-size: 16px; padding: 10px; }
+  #log { height: 80px; font-size: 11px; }
 }
