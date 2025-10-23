@@ -7,76 +7,125 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #2f3136, #1e1f22);
+  background: radial-gradient(circle at top left, #2f3136 0%, #1e1f22 80%);
   color: #fff;
   margin: 0; padding: 0;
   display: flex; justify-content: center; align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
 .card {
-  background: #36393f;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,.5);
-  width: 100%; max-width: 600px;
+  background: rgba(54, 57, 63, 0.9);
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.5),
+    0 0 25px rgba(88,101,242,.15);
+  width: 100%; max-width: 620px;
   animation: fadeIn .8s ease;
   overflow: auto; max-height: 95vh;
+  backdrop-filter: blur(10px);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.6),
+    0 0 35px rgba(88,101,242,.25);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(25px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-  color: #adb8ff;
+  color: #b9c4ff;
   text-align: center;
-  margin: 0 0 24px;
-  font-weight: 600;
+  margin: 0 0 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(88,101,242,0.4);
 }
 
 label {
   display: block;
   margin-top: 18px;
   font-size: 14px;
+  opacity: 0.85;
+  transition: opacity .3s;
+}
+
+label:hover {
+  opacity: 1;
 }
 
 input[type="text"], textarea {
-  width: 100%; padding: 10px; margin-top: 6px;
-  border-radius: 8px; border: none;
-  background: #202225; color: #fff;
-  font-family: monospace; resize: vertical;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(32,34,37,0.8);
+  color: #fff;
+  font-family: monospace;
+  resize: vertical;
+  outline: none;
+  transition: border-color .3s, background .3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #5865f2;
+  background: rgba(32,34,37,0.95);
+  box-shadow: 0 0 8px rgba(88,101,242,0.3);
 }
 
 textarea {
-  min-height: 60px; overflow-y: auto;
+  min-height: 70px;
+  overflow-y: auto;
 }
 
 .button-container {
-  display: flex; gap: 10px; justify-content: center; margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+button {
+  border: none;
+  border-radius: 16px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s ease;
+  user-select: none;
 }
 
 button.primary {
-  margin-top: 24px; width: 50%; padding: 14px;
-  border: none; border-radius: 14px;
-  background: linear-gradient(135deg, #6d75ff, #5865f2);
-  color: #fff; font-weight: 700; font-size: 18px;
-  letter-spacing: .5px; cursor: pointer; position: relative;
+  width: 50%;
+  background: linear-gradient(135deg, #7079ff, #5865f2);
+  color: #fff;
   box-shadow:
     0 4px 15px rgba(88,101,242,.4),
     0 0 10px rgba(255,255,255,.1),
     inset 0 0 5px rgba(255,255,255,.2);
-  overflow: hidden; transition: all .3s;
 }
 
 button.primary:hover {
-  background: linear-gradient(135deg, #7d89ff, #4e57e0);
+  background: linear-gradient(135deg, #8a94ff, #4e57e0);
   box-shadow:
-    0 6px 22px rgba(88,101,242,.6),
-    0 0 24px rgba(255,255,255,.2),
+    0 8px 20px rgba(88,101,242,.5),
+    0 0 20px rgba(255,255,255,.2),
     inset 0 0 10px rgba(255,255,255,.3);
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 button.primary:active {
@@ -84,30 +133,23 @@ button.primary:active {
   box-shadow: inset 0 4px 6px rgba(0,0,0,.3);
 }
 
-button.primary.loading {
-  color: #fff; pointer-events: none;
-}
-
 button.secondary {
-  margin-top: 24px; width: 50%; padding: 14px;
-  border: none; border-radius: 14px;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: #fff; font-weight: 700; font-size: 18px;
-  letter-spacing: .5px; cursor: pointer; position: relative;
+  width: 50%;
+  background: linear-gradient(135deg, #ff5c5c, #c0392b);
+  color: #fff;
   box-shadow:
     0 4px 15px rgba(236,81,81,.4),
     0 0 10px rgba(255,255,255,.1),
     inset 0 0 5px rgba(255,255,255,.2);
-  overflow: hidden; transition: all .3s;
 }
 
 button.secondary:hover {
-  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  background: linear-gradient(135deg, #ff7b7b, #e74c3c);
   box-shadow:
-    0 6px 22px rgba(236,81,81,.6),
-    0 0 24px rgba(255,255,255,.2),
+    0 8px 20px rgba(236,81,81,.5),
+    0 0 20px rgba(255,255,255,.2),
     inset 0 0 10px rgba(255,255,255,.3);
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 button.secondary:active {
@@ -116,18 +158,29 @@ button.secondary:active {
 }
 
 #log {
-  margin-top: 20px; padding: 10px; height: 120px;
-  overflow-y: auto; background: #202225;
-  border-radius: 10px; font-family: monospace;
-  font-size: 12px; white-space: pre-wrap;
+  margin-top: 24px;
+  padding: 12px;
+  height: 140px;
+  overflow-y: auto;
+  background: rgba(32,34,37,0.8);
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: background .3s;
+}
+
+#log:hover {
+  background: rgba(32,34,37,0.9);
 }
 
 @media (max-width: 600px) {
-  .card { padding: 16px; max-width: 95%; border-radius: 10px; }
-  h2 { font-size: 18px; margin-bottom: 16px; }
+  .card { padding: 20px; max-width: 95%; border-radius: 14px; }
+  h2 { font-size: 18px; margin-bottom: 18px; }
   label { font-size: 13px; margin-top: 12px; }
-  input[type="text"], textarea { padding: 8px; font-size: 12px; }
-  .button-container { flex-direction: column; gap: 8px; }
-  button.primary, button.secondary { width: 100%; font-size: 16px; padding: 10px; }
-  #log { height: 80px; font-size: 11px; }
+  input[type="text"], textarea { padding: 10px; font-size: 13px; }
+  .button-container { flex-direction: column; gap: 10px; }
+  button.primary, button.secondary { width: 100%; font-size: 16px; padding: 12px; }
+  #log { height: 100px; font-size: 11px; }
 }
